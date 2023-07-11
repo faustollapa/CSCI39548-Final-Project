@@ -47,16 +47,17 @@ const CreatePost = () => {
       setLoading(true);
 
       try {
-        const response = await fetch('https://ai-image-generator-z3kn.onrender.com/api/v1/dalle',
+        const response = await fetch("https://ai-image-generator-z3kn.onrender.com/api/v1/dalle",
          {
-          method: 'POST',
+          method: "POST",
           headers: {
-            'Content-Type': 'application/json',
+            "Content-Type": "application/json",
           },
-          body: JSON.stringify(form)
+          body: JSON.stringify({ ...form }),
          })
 
          await response.json();
+         alert('Success');
          navigate('/');
       } catch (error) {
         alert(error)
